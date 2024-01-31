@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "bun run --hot src/index.ts",
     "build": "bun build ./src/index.ts --outdir ./out",
-    "serve": "bun run ./out/index.js"
+    "serve": "~/.bun/bin/bun ./out/index.js"
   },
   "dependencies": {
     "hono": "^3.12.8"
