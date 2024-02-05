@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "dev": "bun run --hot src/index.ts",
-    "build": "bun build ./src/index.ts --outdir ./out",
+    "dev": "bun run --hot src/index.tsx",
+    "build": "bun build ./src/index.tsx --outdir ./out",
     "serve": "~/.bun/bin/bun ./out/index.js"
   },
   "dependencies": {
