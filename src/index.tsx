@@ -1,7 +1,8 @@
 import { Hono } from 'hono'
+import { FC, Fragment } from 'hono/jsx'
 import { db } from './drizzle'
 import { users } from './drizzle/schema'
-import { FC, Fragment } from 'hono/jsx'
+import './input.css'
 
 const app = new Hono()
 
@@ -9,9 +10,12 @@ const HTML: FC = (props) => {
   return (
     <html lang='en'>
       <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <title> Twitter with Hono and Htmx </title>
         
         <script src='https://unpkg.com/htmx.org@latest' />
+        <script src="https://cdn.tailwindcss.com" />
         
       </head>
       <body>
@@ -27,9 +31,9 @@ app.get('/', (c) => c.html(
     <h1 hx-get="/getUser" hx-target="#users-target" hx-trigger="load">User List</h1>
     <div id="users-target" hx-get="/getUser" hx-swap="innerHTML transition:true" hx-trigger="newUser from:body"/>
     <h2>Add Users</h2>
-    <form hx-post="/addUser" hx-swap='none' >
-      <input name='userName' placeholder='John Doe..' />
-      <button type='submit'>Submit</button>
+    <form class={" flex items-center gap-2 "} hx-post="/addUser" hx-swap='none' >
+      <input class={" p-1 border rounded-sm "} name='userName' placeholder='John Doe..' />
+      <button class={" p-2 bg-black rounded-sm text-white"} type='submit'>Submit</button>
     </form>
   </HTML>
 ))
